@@ -4,14 +4,13 @@ class StudentsController < ApplicationController
 
     render({ :template => "students/index" })
   end
-
   def show
     the_id = params.fetch("path_id")
     @student = Student.where({:id => the_id }).at(0)
 
     render({ :template => "students/show" })
   end
-
+=begin
   def create
     @student = Student.new
     @student.first_name = params.fetch("query_first_name")
@@ -50,4 +49,5 @@ class StudentsController < ApplicationController
 
     redirect_to("/students", { :notice => "Student deleted successfully."} )
   end
+=end
 end

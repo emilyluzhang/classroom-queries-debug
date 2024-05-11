@@ -7,10 +7,11 @@ class DepartmentsController < ApplicationController
 
   def show
     the_id = params.fetch("path_id")
-    @department = Department.where({:id => the_id })
+    @department = Department.where({:id => the_id })[0]
 
     render({ :template => "departments/show" })
   end
+=begin 
 
   def create
     @department = Department.new
@@ -46,4 +47,5 @@ class DepartmentsController < ApplicationController
 
     redirect_to("/departments", { :notice => "Department deleted successfully."} )
   end
+=end 
 end

@@ -4,13 +4,13 @@ class CoursesController < ApplicationController
 
     render({ :template => "courses/index" })
   end
-
   def show
     the_id = params.fetch("path_id")
     @course = Course.where({:id => the_id }).at(0)
 
     render({ :template => "courses/show" })
   end
+=begin
 
   def create
     @course = Course.new
@@ -50,4 +50,5 @@ class CoursesController < ApplicationController
 
     redirect_to("/courses", { :notice => "Course deleted successfully."} )
   end
+=end 
 end
